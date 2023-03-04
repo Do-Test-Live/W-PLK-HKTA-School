@@ -1,4 +1,4 @@
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll(".hkta-primary-btn");
 
 buttons.forEach(button => {
     button.addEventListener("click", () => {
