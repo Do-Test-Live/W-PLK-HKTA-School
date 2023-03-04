@@ -2,9 +2,17 @@ const buttons = document.querySelectorAll("button");
 
 buttons.forEach(button => {
     button.addEventListener("click", () => {
-        let audio = new Audio(button.id+'.wav');
+        let audio = new Audio('../assets/audio/'+button.id+'.wav');
         audio.play();
-        console.log(button);
-        alert('Audio Play'+button.id+'.wav');
+
+        if(button.id!='reset'){
+            button.disabled=true;
+        }
     });
 });
+
+function reset(){
+    buttons.forEach(button => {
+        button.disabled=false;
+    });
+}

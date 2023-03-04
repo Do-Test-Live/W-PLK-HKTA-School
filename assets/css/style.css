@@ -35,12 +35,17 @@
     font-weight: bold;
 }
 
-.hkta-primary-btn:hover{
-    background: #f57149;
-    border: 1px solid white;
-    outline: 3px solid #ffda63;
-    outline-offset: 2px;
+.hkta-primary-btn:hover,.hkta-primary-btn:active{
+    background: #f57149 !important;
+    border: 1px solid white !important;
+    outline: 3px solid #ffda63 !important;
+    outline-offset: 2px !important;
 }
+
+.hkta-primary-btn:disabled{
+    background: #ff3b00  !important;
+}
+
 
 .hkta-dark-btn{
     height: 70px;
@@ -55,11 +60,11 @@
     font-weight: bold;
 }
 
-.hkta-dark-btn:hover{
-    background: #484767;
-    border: 1px solid white;
-    outline: 3px solid #ffda63;
-    outline-offset: 2px;
+.hkta-dark-btn:hover,.hkta-dark-btn:active,.hkta-dark-btn:disabled{
+    background: #484767 !important;
+    border: 1px solid white !important;
+    outline: 3px solid #ffda63 !important;
+    outline-offset: 2px !important;
 }
 
 .hkta-reset-btn{
@@ -75,11 +80,11 @@
     font-weight: bold;
 }
 
-.hkta-reset-btn:hover{
-    background: #f57149;
-    border: 1px solid white;
-    outline: 3px solid #ffda63;
-    outline-offset: 2px;
+.hkta-reset-btn:hover,.hkta-reset-btn:active,.hkta-reset-btn:disabled{
+    background: #f57149 !important;
+    border: 1px solid white !important;
+    outline: 3px solid #ffda63 !important;
+    outline-offset: 2px !important;
 }
 
 @media only screen and (max-width: 550px) {
