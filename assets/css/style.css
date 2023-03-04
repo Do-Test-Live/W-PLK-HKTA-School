@@ -1,0 +1,98 @@
+.hkta-dark{
+    color: #2d2c55;
+}
+
+.hkta-title{
+    font-family: Calibri;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.hkta-primary-text{
+    color: #f79577;
+}
+
+.hkta-title-description{
+    font-family: Arial;
+    font-size: 46px;
+}
+
+.hkta-title-date{
+    font-family: Arial;
+    font-size: 22px;
+}
+
+.hkta-primary-btn{
+    height: 70px;
+    width: 170px;
+    color: white;
+    font-size: 25px;
+    background: #f79577;
+    border: 1px solid white;
+    outline: 3px solid #ffda63;
+    outline-offset: 2px;
+    font-family: Calibri;
+    font-weight: bold;
+}
+
+.hkta-primary-btn:hover{
+    background: #f57149;
+    border: 1px solid white;
+    outline: 3px solid #ffda63;
+    outline-offset: 2px;
+}
+
+.hkta-dark-btn{
+    height: 70px;
+    width: 220px;
+    color: white;
+    font-size: 25px;
+    background: #484767;
+    border: 1px solid white;
+    outline: 3px solid #ffda63;
+    outline-offset: 2px;
+    font-family: Calibri;
+    font-weight: bold;
+}
+
+.hkta-dark-btn:hover{
+    background: #484767;
+    border: 1px solid white;
+    outline: 3px solid #ffda63;
+    outline-offset: 2px;
+}
+
+.hkta-reset-btn{
+    height: 70px;
+    width: 220px;
+    color: red;
+    font-size: 25px;
+    background: #f79577;
+    border: 1px solid white;
+    outline: 3px solid #ffda63;
+    outline-offset: 2px;
+    font-family: Calibri;
+    font-weight: bold;
+}
+
+.hkta-reset-btn:hover{
+    background: #f57149;
+    border: 1px solid white;
+    outline: 3px solid #ffda63;
+    outline-offset: 2px;
+}
+
+@media only screen and (max-width: 550px) {
+    .hkta-title{
+        font-size: 25px;
+    }
+
+    .hkta-title-description{
+        font-size: 18px;
+    }
+
+    .hkta-title-date{
+        font-size: 14px;
+    }
+}
+
