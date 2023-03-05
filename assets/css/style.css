@@ -99,5 +99,15 @@
     .hkta-title-date{
         font-size: 14px;
     }
+
+    .hkta-dark-btn{
+        height: 100px;
+        width: 175px;
+    }
+
+    .hkta-reset-btn {
+        height: 70px;
+        width: 175px;
+    }
 }
 
