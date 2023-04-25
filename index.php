@@ -2,11 +2,12 @@
 session_start();
 require_once("Controller/dbController.php");
 $db_handle = new DBController();
+$delete = $db_handle->insertQuery("TRUNCATE TABLE `sound`");
 date_default_timezone_set("Asia/Dhaka");
 $inserted_at = date("Y-m-d H:i:s");
 $ip = $_SERVER['REMOTE_ADDR'];
 $insert = $db_handle->insertQuery("INSERT INTO `user`(`ip`,  `inserted_at`) VALUES ('$ip','$inserted_at')");
-$data = $db_handle->runQuery("SELECT * FROM user order by id desc ");
+$data = $db_handle->runQuery("SELECT * FROM user order by id desc");
 $_SESSION['user_id'] = $data[0]['id'];
 ?>
 <!doctype html>
@@ -309,6 +310,9 @@ $_SESSION['user_id'] = $data[0]['id'];
 
 <!-- Splide JS -->
 <script src="assets/vendor/splide/js/splide.min.js"></script>
+
+<!-- jQuery JS -->
+<script src="assets/vendor/jQuery/jquery.min.js"></script>
 
 <!-- Main JS -->
 <script src="assets/js/main.js"></script>
