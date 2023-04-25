@@ -20,7 +20,6 @@ function reset(){
     });
 }
 
-
 async function sound(sound_name) {
     $.ajax({
         type: "POST",
@@ -52,5 +51,15 @@ async function resetSound() {
 setTimeout(playSound, 5000);
 
 async function playSound() {
-
+    $.ajax({
+        type: "POST",
+        url: "insertSound.php",
+        data: {play_sound: 1},
+        success:async function(msg){
+            console.log('Play Sound '+msg);
+        },
+        error: function(){
+            alert("failure");
+        }
+    });
 }

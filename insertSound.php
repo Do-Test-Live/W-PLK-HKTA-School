@@ -14,5 +14,8 @@ if(isset($_POST['reset'])){
     $delete = $db_handle->insertQuery("TRUNCATE TABLE `sound`");
 }
 
-
+if(isset($_POST['play_sound'])){
+    $play_sound=$_POST['play_sound'];
+    $insert = $db_handle->insertQuery("INSERT INTO `sound`(`sound_id`, `user_id`,`inserted_at`) VALUES ('$sound_id','$user_id','$inserted_at')");
+}
 
