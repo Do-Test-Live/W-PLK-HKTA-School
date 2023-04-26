@@ -7,11 +7,11 @@ class DBController {
     private $conn;
 
     function __construct() {
-        if($_SERVER['SERVER_NAME']=="couponxhosting.com"||$_SERVER['SERVER_NAME']=="www.couponxhosting.com"){
-            $this->host = "server323";
-            $this->user = "coupgkvg_coupon";
+        if($_SERVER['SERVER_NAME']=="school.ngt.hk"||$_SERVER['SERVER_NAME']=="www.school.ngt.hk"){
+            $this->host = "localhost";
+            $this->user = "ugu1n7agaeeni";
             $this->password = ")@y=29nDeA(5";
-            $this->database = "coupgkvg_coupon";
+            $this->database = "dbsztvuggiyqwg";
         }
 
         $this->conn = $this->connectDB();
