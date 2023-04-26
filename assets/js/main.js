@@ -29,7 +29,7 @@ async function sound(sound_name) {
             console.log('Play Sound ' + sound_name);
         },
         error: function () {
-            alert("failure");
+            console.log(error);
         }
     });
 }
@@ -43,12 +43,12 @@ async function resetSound() {
             console.log('Reset Sound');
         },
         error: function () {
-            alert("failure");
+            console.log(error);
         }
     });
 }
 
-setInterval(playSound, 5000);
+setInterval(playSound, 1000);
 
 async function playSound() {
     console.log('Play Sound Execute');
@@ -60,18 +60,24 @@ async function playSound() {
         success: async function (msg) {
 
             if (msg != 'reset') {
-                console.log('Play Sound '+msg);
-                let audio = new Audio('../assets/audio/' + msg + '.wav');
-                audio.play();
 
-                document.getElementById(msg).disabled = false;
+                let audioSplit=msg.match(/.{1,4}/g);
+
+                for(let i=0;audioSplit.length;i++){
+                    let audio = new Audio('../assets/audio/' + audioSplit[i] + '.wav');
+                    audio.play();
+
+                    console.log('Play Sound '+audioSplit[i]);
+
+                    document.getElementById(audioSplit[i]).disabled = true;
+                }
             } else {
                 console.log('Reset Sound '+msg);
             }
 
         },
         error: function () {
-            alert("failure");
+            console.log(error);
         }
     });
 }

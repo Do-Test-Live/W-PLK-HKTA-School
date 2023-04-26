@@ -43,7 +43,7 @@ $_SESSION['user_id'] = $data[0]['id'];
             </div>
             <div class="col-lg-6 text-center mb-3">
                 <h1 class="hkta-dark hkta-title">
-                    PLK HKTA YUEN PRIMARY SCHOOL <?php echo $_SESSION['user_id']; ?>
+                    PLK HKTA YUEN PRIMARY SCHOOL
                 </h1>
                 <h3 class="hkta-primary-text hkta-title-description">
                     After School System
