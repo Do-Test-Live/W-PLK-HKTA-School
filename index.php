@@ -74,22 +74,48 @@ $_SESSION['user_id'] = $data[0]['id'];
 
             $total = (int)($sound_row / 4);
             for ($i = 0; $i < $total; $i++) {
-                $j=$i*4;
+                $j = $i * 4;
                 ?>
                 <div class="col-lg-6">
                     <div class="row">
-                        <div class="col-xl-3 col-md-4 col-6 mb-4">
-                            <button class="btn btn-primary hkta-primary-btn" id="<?php echo $sound_data[$j]['code']; ?>" type="button"><?php echo $sound_data[$j]['code']; ?></button>
-                        </div>
-                        <div class="col-xl-3 col-md-4 col-6 mb-4">
-                            <button class="btn btn-primary hkta-primary-btn" id="<?php echo $sound_data[$j+1]['code']; ?>" type="button"><?php echo $sound_data[$j+1]['code']; ?></button>
-                        </div>
-                        <div class="col-xl-3 col-md-4 col-6 mb-4">
-                            <button class="btn btn-primary hkta-primary-btn" id="<?php echo $sound_data[$j+2]['code']; ?>" type="button"><?php echo $sound_data[$j+2]['code']; ?></button>
-                        </div>
-                        <div class="col-xl-3 col-md-4 col-6 mb-4">
-                            <button class="btn btn-primary hkta-primary-btn" id="<?php echo $sound_data[$j+3]['code']; ?>" type="button"><?php echo $sound_data[$j+3]['code']; ?></button>
-                        </div>
+                        <?php
+                        if (isset($sound_data[$j]['code'])) {
+                            ?>
+                            <div class="col-xl-3 col-md-4 col-6 mb-4">
+                                <button class="btn btn-primary hkta-primary-btn"
+                                        id="<?php echo $sound_data[$j]['code']; ?>"
+                                        type="button"><?php echo $sound_data[$j]['code']; ?></button>
+                            </div>
+                            <?php
+                        }
+                        if (isset($sound_data[$j + 1]['code'])) {
+                            ?>
+                            <div class="col-xl-3 col-md-4 col-6 mb-4">
+                                <button class="btn btn-primary hkta-primary-btn"
+                                        id="<?php echo $sound_data[$j + 1]['code']; ?>"
+                                        type="button"><?php echo $sound_data[$j + 1]['code']; ?></button>
+                            </div>
+                            <?php
+                        }
+                        if (isset($sound_data[$j + 2]['code'])) {
+                            ?>
+                            <div class="col-xl-3 col-md-4 col-6 mb-4">
+                                <button class="btn btn-primary hkta-primary-btn"
+                                        id="<?php echo $sound_data[$j + 2]['code']; ?>"
+                                        type="button"><?php echo $sound_data[$j + 2]['code']; ?></button>
+                            </div>
+                            <?php
+                        }
+                        if (isset($sound_data[$j + 3]['code'])) {
+                            ?>
+                            <div class="col-xl-3 col-md-4 col-6 mb-4">
+                                <button class="btn btn-primary hkta-primary-btn"
+                                        id="<?php echo $sound_data[$j + 3]['code']; ?>"
+                                        type="button"><?php echo $sound_data[$j + 3]['code']; ?></button>
+                            </div>
+                            <?php
+                        }
+                        ?>
                     </div>
                 </div>
                 <?php
@@ -101,103 +127,89 @@ $_SESSION['user_id'] = $data[0]['id'];
 
 <section>
     <div class="container-fluid">
-        <div class="row text-center">
-            <div class="col-lg-7 ps-lg-3">
-                <div class="row">
-                    <div class="col-xl-3 col-lg-4 col-6 mb-4">
-                        <button class="btn btn-primary hkta-dark-btn" type="button">Football Team</button>
+
+        <?php
+        $query = "SELECT * FROM extra_activities order by id asc";
+        $activities_data = $db_handle->runQuery($query);
+        $activities_row = $db_handle->numRows($query);
+
+        $total = (int)($activities_row / 7);
+        for ($i = 0; $i < $total; $i++) {
+            $j = $i * 7;
+            ?>
+            <div class="row text-center">
+                <div class="col-lg-7 ps-lg-3">
+                    <div class="row">
+                        <?php
+                        if (isset($activities_data[$j]['name'])) {
+                            ?>
+                            <div class="col-xl-3 col-lg-4 col-6 mb-4">
+                                <button class="btn btn-primary hkta-dark-btn"
+                                        type="button"><?php echo $activities_data[$j]['name']; ?></button>
+                            </div>
+                            <?php
+                        }
+                        if (isset($activities_data[$j + 1]['name'])) {
+                            ?>
+                            <div class="col-xl-3 col-lg-4 col-6 mb-4">
+                                <button class="btn btn-primary hkta-dark-btn"
+                                        type="button"><?php echo $activities_data[$j + 1]['name']; ?></button>
+                            </div>
+                            <?php
+                        }
+                        if (isset($activities_data[$j + 2]['name'])) {
+                            ?>
+                            <div class="col-xl-3 col-lg-4 col-6 mb-4">
+                                <button class="btn btn-primary hkta-dark-btn"
+                                        type="button"><?php echo $activities_data[$j + 2]['name']; ?></button>
+                            </div>
+                            <?php
+                        }
+                        if (isset($activities_data[$j + 3]['name'])) {
+                            ?>
+                            <div class="col-xl-3 col-lg-4 col-6 mb-4">
+                                <button class="btn btn-primary hkta-dark-btn"
+                                        type="button"><?php echo $activities_data[$j + 3]['name']; ?></button>
+                            </div>
+                            <?php
+                        }
+                        ?>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-6 mb-4">
-                        <button class="btn btn-primary hkta-dark-btn" type="button">Production Team</button>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-6 mb-4">
-                        <button class="btn btn-primary hkta-dark-btn" type="button">SPT TEAM</button>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-6 mb-4">
-                        <button class="btn btn-primary hkta-dark-btn" type="button">Senior Chair</button>
+                </div>
+                <div class="col-lg-5 pe-lg-4">
+                    <div class="row">
+                        <?php
+                        if (isset($activities_data[$j + 4]['name'])) {
+                            ?>
+                            <div class="col-xl-4 col-6 mb-4">
+                                <button class="btn btn-primary hkta-dark-btn"
+                                        type="button"><?php echo $activities_data[$j + 4]['name']; ?></button>
+                            </div>
+                            <?php
+                        }
+                        if (isset($activities_data[$j + 5]['name'])) {
+                            ?>
+                            <div class="col-xl-4 col-6 mb-4">
+                                <button class="btn btn-primary hkta-dark-btn"
+                                        type="button"><?php echo $activities_data[$j + 5]['name']; ?></button>
+                            </div>
+                            <?php
+                        }
+                        if (isset($activities_data[$j + 6]['name'])) {
+                            ?>
+                            <div class="col-xl-4 col-6 mb-4">
+                                <button class="btn btn-primary hkta-dark-btn"
+                                        type="button"><?php echo $activities_data[$j + 6]['name']; ?></button>
+                            </div>
+                            <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5 pe-lg-4">
-                <div class="row">
-                    <div class="col-xl-4 col-6 mb-4">
-                        <button class="btn btn-primary hkta-dark-btn" type="button">Junior Chair</button>
-                    </div>
-                    <div class="col-xl-4 col-6 mb-4">
-                        <button class="btn btn-primary hkta-dark-btn" type="button">Cheerleading</button>
-                    </div>
-                    <div class="col-xl-4 col-6 mb-4">
-                        <button class="btn btn-primary hkta-dark-btn" type="button">Orchestra</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row text-center">
-            <div class="col-lg-7 ps-lg-3">
-                <div class="row">
-                    <div class="col-xl-3 col-lg-4 col-6 mb-4">
-                        <button class="btn btn-primary hkta-dark-btn" type="button">Football Team</button>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-6 mb-4">
-                        <button class="btn btn-primary hkta-dark-btn" type="button">Production Team</button>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-6 mb-4">
-                        <button class="btn btn-primary hkta-dark-btn" type="button">SPT TEAM</button>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-6 mb-4">
-                        <button class="btn btn-primary hkta-dark-btn" type="button">Senior Chair</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-5 pe-lg-4">
-                <div class="row">
-                    <div class="col-xl-4 col-6 mb-4">
-                        <button class="btn btn-primary hkta-dark-btn" type="button">Junior Chair</button>
-                    </div>
-                    <div class="col-xl-4 col-6 mb-4">
-                        <button class="btn btn-primary hkta-dark-btn" type="button">Cheerleading</button>
-                    </div>
-                    <div class="col-xl-4 col-6 mb-4">
-                        <button class="btn btn-primary hkta-dark-btn" type="button">Orchestra</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row text-center">
-            <div class="col-lg-7 ps-lg-3">
-                <div class="row">
-                    <div class="col-xl-3 col-lg-4 col-6 mb-4">
-                        <button class="btn btn-primary hkta-dark-btn" type="button">Football Team</button>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-6 mb-4">
-                        <button class="btn btn-primary hkta-dark-btn" type="button">Production Team</button>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-6 mb-4">
-                        <button class="btn btn-primary hkta-dark-btn" type="button">SPT TEAM</button>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-6 mb-4">
-                        <button class="btn btn-primary hkta-dark-btn" type="button">Senior Chair</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-5 pe-lg-4">
-                <div class="row">
-                    <div class="col-xl-4 col-6 mb-4">
-                        <button class="btn btn-primary hkta-dark-btn" type="button">Junior Chair</button>
-                    </div>
-                    <div class="col-xl-4 col-6 mb-4">
-                        <button class="btn btn-primary hkta-dark-btn" type="button">Cheerleading</button>
-                    </div>
-                    <div class="col-xl-4 col-6 mb-4">
-                        <button class="btn btn-primary hkta-dark-btn" type="button">Orchestra</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <?php
+        }
+        ?>
     </div>
 </section>
 

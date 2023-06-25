@@ -38,6 +38,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Data:</h6>
                 <a class="collapse-item" href="soundlist.php">Sound Data</a>
+                <a class="collapse-item" href="activities.php">Extra Activities Data</a>
             </div>
         </div>
     </li>
