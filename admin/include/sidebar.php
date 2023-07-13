@@ -42,6 +42,12 @@
             </div>
         </div>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="play-sound.php">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Play Sound</span>
+        </a>
+    </li>
 
 </ul>
 <!-- End of Sidebar -->
