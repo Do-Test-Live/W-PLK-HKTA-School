@@ -3,7 +3,7 @@ session_start();
 require_once("Controller/dbController.php");
 $db_handle = new DBController();
 $delete = $db_handle->insertQuery("TRUNCATE TABLE `sound`");
-date_default_timezone_set("Asia/Dhaka");
+date_default_timezone_set("Asia/Hong_Kong");
 $inserted_at = date("Y-m-d H:i:s");
 $ip = $_SERVER['REMOTE_ADDR'];
 $insert = $db_handle->insertQuery("INSERT INTO `user`(`ip`,  `inserted_at`) VALUES ('$ip','$inserted_at')");
@@ -56,9 +56,43 @@ $_SESSION['user_id'] = $data[0]['id'];
                 </h3>
             </div>
             <div class="col-lg-3 mb-3">
-                <h4 class="text-lg-end text-center mt-lg-4 mt-0 hkta-title-date pe-lg-4">
+                <h4 class="text-lg-end text-center mt-lg-4 mt-0 hkta-title-date pe-lg-4" id="datetime">
                     2023/03/06(XXX) 07:30
                 </h4>
+
+                <script>
+                    function displayHongKongDateTime() {
+                        // Create a new Date object
+                        let date = new Date();
+
+                        // Define the options for formatting the date and time
+                        let options = {
+                            timeZone: 'Asia/Hong_Kong',
+                            day: 'numeric',
+                            month: 'numeric',
+                            year: 'numeric',
+                            hour: 'numeric',
+                            minute: 'numeric',
+                            hour12: true, // Use 12-hour format
+                            weekday: 'long'
+                        };
+
+                        // Format the date and time according to the options
+                        let hongKongDateTime = date.toLocaleString('en-US', options);
+
+                        // Get the div element
+                        let div = document.getElementById('datetime');
+
+                        // Update the content of the div with the Hong Kong date and time
+                        div.textContent = hongKongDateTime;
+                        }
+
+                        // Call the displayHongKongDateTime function initially
+                        displayHongKongDateTime();
+
+                        // Update the date and time every second
+                        setInterval(displayHongKongDateTime, 1000);
+                    </script>
             </div>
         </div>
     </div>
@@ -217,7 +251,7 @@ $_SESSION['user_id'] = $data[0]['id'];
     <div class="container-fluid mt-3 mb-3">
         <div class="row ps-lg-2 pe-lg-2">
             <div class="col-6 text-start ps-lg-4">
-                <h3 class="pt-4">Monday</h3>
+                <h3 class="pt-4"></h3>
             </div>
             <div class="col-6 text-lg-end pe-lg-4">
                 <button class="btn btn-primary hkta-reset-btn" id="reset" onclick="reset();" type="button">Reset

@@ -64,7 +64,7 @@ if (isset($_POST['submit'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sound List - PLK HKTA YUEN PRIMARY SCHOOL</title>
+    <title>Class - PLK HKTA YUEN PRIMARY SCHOOL</title>
 
     <?php require_once 'include/css.php'; ?>
 
@@ -141,7 +141,7 @@ if (isset($_POST['submit'])) {
                 } else {
                     ?>
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Sound Data</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Class</h1>
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
