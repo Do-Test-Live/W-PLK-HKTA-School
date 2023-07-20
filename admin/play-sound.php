@@ -279,6 +279,19 @@ $_SESSION['user_id'] = $data[0]['id'];
     <i class="fas fa-angle-up"></i>
 </a>
 
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h1 class="text-center d-flex justify-content-center align-items-center" id="classTitle" style="height: 95vh;font-size: calc(5rem + 1.5vw);">
+                    MAS1
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Logout Modal-->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
@@ -301,89 +314,6 @@ $_SESSION['user_id'] = $data[0]['id'];
 
 <?php require_once 'include/js.php'; ?>
 <script>
-    const buttons = document.querySelectorAll(".hkta-primary-btn");
-
-    buttons.forEach(button => {
-        button.addEventListener("click", () => {
-            let audio = new Audio('../assets/audio/' + button.id + '.wav');
-            audio.play();
-
-            if (button.id != 'reset') {
-                button.disabled = true;
-            }
-
-            sound(button.id);
-        });
-    });
-
-    function reset() {
-        buttons.forEach(button => {
-            button.disabled = false;
-            resetSound();
-        });
-    }
-
-    async function sound(sound_name) {
-        $.ajax({
-            type: "POST",
-            url: "insertSound.php",
-            data: {sound_name: sound_name},
-            success: async function (msg) {
-
-            },
-            error: function () {
-
-            }
-        });
-    }
-
-    async function resetSound() {
-        $.ajax({
-            type: "POST",
-            url: "insertSound.php",
-            data: {reset: 1},
-            success: async function (msg) {
-
-            },
-            error: function () {
-
-            }
-        });
-    }
-
-    setInterval(playSound, 1000);
-
-    async function playSound() {
-
-        $.ajax({
-            type: "POST",
-            url: "insertSound.php",
-            data: {play_sound: 1},
-            success: async function (msg) {
-
-                if (msg != 'reset') {
-
-                    let audioSplit=msg.match(/.{1,4}/g);
-
-                    for(let i=0;i<audioSplit.length;i++){
-                        let audio = new Audio('../assets/audio/' + audioSplit[i] + '.wav');
-                        audio.play();
-
-
-
-                        document.getElementById(audioSplit[i]).disabled = true;
-                    }
-                } else {
-
-                }
-
-            },
-            error: function () {
-
-            }
-        });
-    }
-
     $(document).ready(function () {
         //to disable the entire page
         $("body").on("contextmenu", function (e) {
@@ -419,6 +349,94 @@ $_SESSION['user_id'] = $data[0]['id'];
             }
         }
     });
+
+    const buttons = document.querySelectorAll(".hkta-primary-btn");
+
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            let audio = new Audio('../assets/audio/' + button.id + '.wav');
+            audio.play();
+
+            if (button.id != 'reset') {
+                button.disabled = true;
+            }
+
+            sound(button.id);
+        });
+    });
+
+    function reset() {
+        buttons.forEach(button => {
+            button.disabled = false;
+            resetSound();
+        });
+    }
+
+    async function sound(sound_name) {
+        $.ajax({
+            type: "POST",
+            url: "insertSound.php",
+            data: {sound_name: sound_name},
+            success: async function (msg) {
+                $('#staticBackdrop').modal('show');
+                document.getElementById('classTitle').innerHTML=sound_name;
+
+                setInterval(function () {
+                    $('#staticBackdrop').modal('hide');
+                }, 2000);
+            },
+            error: function () {
+
+            }
+        });
+    }
+
+    async function resetSound() {
+        $.ajax({
+            type: "POST",
+            url: "insertSound.php",
+            data: {reset: 1},
+            success: async function (msg) {
+
+            },
+            error: function () {
+
+            }
+        });
+    }
+
+    setInterval(playSound, 1000);
+
+    async function playSound() {
+
+        $.ajax({
+            type: "POST",
+            url: "insertSound.php",
+            data: {play_sound: 1},
+            success: async function (msg) {
+
+                if (msg != 'reset') {
+
+                    let audioSplit = msg.match(/.{1,4}/g);
+
+                    for (let i = 0; i < audioSplit.length; i++) {
+
+                        let audio = new Audio('../assets/audio/' + audioSplit[i] + '.wav');
+                        audio.play();
+
+                        document.getElementById(audioSplit[i]).disabled = true;
+                    }
+                } else {
+
+                }
+
+            },
+            error: function () {
+
+            }
+        });
+    }
+
 </script>
 
 </body>
