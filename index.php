@@ -16,12 +16,12 @@ $_SESSION['user_id'] = $data[0]['id'];
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
-    <title>PLK HKTA YUEN PRIMARY SCHOOL</title>
-    <meta content="PLK HKTA YUEN PRIMARY SCHOOL" name="description">
-    <meta content="PLK HKTA YUEN PRIMARY SCHOOL" name="keywords">
-    <meta content="PLK HKTA YUEN PRIMARY SCHOOL" name="author">
-    <meta content="PLK HKTA YUEN PRIMARY SCHOOL" property="og:title"/>
-    <meta content="PLK HKTA YUEN PRIMARY SCHOOL" property="og:description"/>
+    <title>PLK HKTA YUEN YUEN PRIMARY SCHOOL</title>
+    <meta content="PLK HKTA YUEN YUEN PRIMARY SCHOOL" name="description">
+    <meta content="PLK HKTA YUEN YUEN PRIMARY SCHOOL" name="keywords">
+    <meta content="PLK HKTA YUEN YUEN PRIMARY SCHOOL" name="author">
+    <meta content="PLK HKTA YUEN YUEN PRIMARY SCHOOL" property="og:title"/>
+    <meta content="PLK HKTA YUEN YUEN PRIMARY SCHOOL" property="og:description"/>
     <meta content="assets/images/back.png" property="og:image"/>
 
     <!-- Bootstrap CSS -->
@@ -49,10 +49,10 @@ $_SESSION['user_id'] = $data[0]['id'];
             </div>
             <div class="col-lg-6 text-center mb-3">
                 <h1 class="hkta-dark hkta-title">
-                    PLK HKTA YUEN PRIMARY SCHOOL
+                    PLK HKTA YUEN YUEN PRIMARY SCHOOL
                 </h1>
                 <h3 class="hkta-primary-text hkta-title-description">
-                    After School System
+                    Dismiss System
                 </h3>
             </div>
             <div class="col-lg-3 mb-3">

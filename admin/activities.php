@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Extra activities List - PLK HKTA YUEN PRIMARY SCHOOL</title>
+    <title>Extra activities List - PLK HKTA YUEN YUEN PRIMARY SCHOOL</title>
 
     <?php require_once 'include/css.php'; ?>
 

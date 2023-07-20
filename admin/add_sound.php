@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Add Class - PLK HKTA YUEN PRIMARY SCHOOL</title>
+    <title>Add Class - PLK HKTA YUEN YUEN PRIMARY SCHOOL</title>
 
     <?php require_once 'include/css.php'; ?>
 

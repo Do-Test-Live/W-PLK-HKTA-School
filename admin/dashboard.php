@@ -14,7 +14,7 @@ $db_handle = new DBController();
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Dashboard - PLK HKTA YUEN PRIMARY SCHOOL</title>
+    <title>Dashboard - PLK HKTA YUEN YUEN PRIMARY SCHOOL</title>
 
     <?php require_once 'include/css.php'; ?>
 

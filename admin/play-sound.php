@@ -21,7 +21,7 @@ $_SESSION['user_id'] = $data[0]['id'];
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Dashboard - PLK HKTA YUEN PRIMARY SCHOOL</title>
+    <title>Dashboard - PLK HKTA YUEN YUEN PRIMARY SCHOOL</title>
 
     <?php require_once 'include/css.php'; ?>
     <link href="../assets/css/style.css" rel="stylesheet">
@@ -51,10 +51,10 @@ $_SESSION['user_id'] = $data[0]['id'];
                         </div>
                         <div class="col-lg-6 text-center mb-3">
                             <h1 class="hkta-dark hkta-title">
-                                PLK HKTA YUEN PRIMARY SCHOOL
+                                PLK HKTA YUEN YUEN PRIMARY SCHOOL
                             </h1>
                             <h3 class="hkta-primary-text hkta-title-description">
-                                After School System
+                                Dismiss System
                             </h3>
                         </div>
                         <div class="col-lg-3 mb-3">
