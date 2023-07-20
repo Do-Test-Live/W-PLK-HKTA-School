@@ -64,6 +64,10 @@ async function sound(sound_name) {
         success: async function (msg) {
             $('#staticBackdrop').modal('show');
             document.getElementById('classTitle').innerHTML=sound_name;
+
+            setInterval(function () {
+                $('#staticBackdrop').modal('hide');
+            }, 2000);
         },
         error: function () {
 
@@ -116,7 +120,3 @@ async function playSound() {
         }
     });
 }
-
-setInterval(function () {
-    $('#staticBackdrop').modal('hide');
-}, 3000);
