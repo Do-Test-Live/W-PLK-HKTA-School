@@ -85,14 +85,14 @@ $_SESSION['user_id'] = $data[0]['id'];
 
                         // Update the content of the div with the Hong Kong date and time
                         div.textContent = hongKongDateTime;
-                        }
+                    }
 
-                        // Call the displayHongKongDateTime function initially
-                        displayHongKongDateTime();
+                    // Call the displayHongKongDateTime function initially
+                    displayHongKongDateTime();
 
-                        // Update the date and time every second
-                        setInterval(displayHongKongDateTime, 1000);
-                    </script>
+                    // Update the date and time every second
+                    setInterval(displayHongKongDateTime, 1000);
+                </script>
             </div>
         </div>
     </div>
@@ -261,6 +261,21 @@ $_SESSION['user_id'] = $data[0]['id'];
     </div>
 </section>
 
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h1 class="text-center d-flex justify-content-center align-items-center" id="classTitle" style="height: 95vh;font-size: calc(5rem + 1.5vw);">
+                    MAS1
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <!-- Bootstrap JS -->
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
 
@@ -273,42 +288,5 @@ $_SESSION['user_id'] = $data[0]['id'];
 <!-- Main JS -->
 <script src="assets/js/main.js"></script>
 
-<script>
-    $(document).ready(function () {
-        //to disable the entire page
-        $("body").on("contextmenu", function (e) {
-            return false;
-        });
-
-        $('body').bind('cut copy paste', function (e) {
-            e.preventDefault();
-        });
-
-        document.addEventListener('contextmenu', event => event.preventDefault());
-
-        document.onkeydown = function (e) {
-
-            // disable F12 key
-            if (e.keyCode == 123) {
-                return false;
-            }
-
-            // disable I key
-            if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
-                return false;
-            }
-
-            // disable J key
-            if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
-                return false;
-            }
-
-            // disable U key
-            if (e.ctrlKey && e.keyCode == 85) {
-                return false;
-            }
-        }
-    });
-</script>
 </body>
 </html>
