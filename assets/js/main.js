@@ -76,6 +76,10 @@ function reset() {
         button.disabled = false;
         resetSound();
     });
+
+    eca.forEach(button => {
+        button.disabled = false;
+    });
 }
 
 async function sound(sound_name) {

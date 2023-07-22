@@ -149,8 +149,8 @@ if (isset($_POST['submit'])) {
                                     </tfoot>
                                     <tbody>
                                     <?php
-                                    $data = $db_handle->runQuery("SELECT * FROM extra_activities order by id desc");
-                                    $row_count = $db_handle->numRows("SELECT * FROM extra_activities order by id desc");
+                                    $data = $db_handle->runQuery("SELECT * FROM extra_activities order by id asc");
+                                    $row_count = $db_handle->numRows("SELECT * FROM extra_activities order by id asc");
                                     for ($i = 0; $i < $row_count; $i++) {
                                         ?>
                                         <tr>
