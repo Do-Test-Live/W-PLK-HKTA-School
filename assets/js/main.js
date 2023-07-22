@@ -1,3 +1,4 @@
+/*
 $(document).ready(function () {
     //to disable the entire page
     $("body").on("contextmenu", function (e) {
@@ -33,6 +34,7 @@ $(document).ready(function () {
         }
     }
 });
+*/
 
 const buttons = document.querySelectorAll(".hkta-primary-btn");
 
@@ -44,6 +46,13 @@ buttons.forEach(button => {
         if (button.id != 'reset') {
             button.disabled = true;
         }
+
+        $('#staticBackdrop').modal('show');
+        document.getElementById('classTitle').innerHTML=button.id;
+
+        setInterval(function () {
+            $('#staticBackdrop').modal('hide');
+        }, 2000);
 
         sound(button.id);
     });
@@ -62,12 +71,7 @@ async function sound(sound_name) {
         url: "insertSound.php",
         data: {sound_name: sound_name},
         success: async function (msg) {
-            $('#staticBackdrop').modal('show');
-            document.getElementById('classTitle').innerHTML=sound_name;
 
-            setInterval(function () {
-                $('#staticBackdrop').modal('hide');
-            }, 2000);
         },
         error: function () {
 
@@ -91,6 +95,8 @@ async function resetSound() {
 
 setInterval(playSound, 1000);
 
+let soundCall = [];
+
 async function playSound() {
 
     $.ajax({
@@ -101,12 +107,33 @@ async function playSound() {
 
             if (msg != 'reset') {
 
+                console.log(msg);
+
                 let audioSplit = msg.match(/.{1,4}/g);
 
                 for (let i = 0; i < audioSplit.length; i++) {
 
+                    soundCall.push(audioSplit[i]);
+
+                    let l=0;
+
+                    soundCall.forEach((element) => {
+                        if(element==audioSplit[i]){
+                            l=1;
+                            console.log(audioSplit[i]);
+                        }
+                        console.log(element);
+                    });
+
                     let audio = new Audio('../assets/audio/' + audioSplit[i] + '.wav');
                     audio.play();
+
+                    $('#staticBackdrop').modal('show');
+                    document.getElementById('classTitle').innerHTML=audioSplit[i];
+
+                    setInterval(function () {
+                        $('#staticBackdrop').modal('hide');
+                    }, 2000);
 
                     document.getElementById(audioSplit[i]).disabled = true;
                 }

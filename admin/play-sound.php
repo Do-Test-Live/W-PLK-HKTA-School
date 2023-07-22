@@ -25,7 +25,28 @@ $_SESSION['user_id'] = $data[0]['id'];
 
     <?php require_once 'include/css.php'; ?>
     <link href="../assets/css/style.css" rel="stylesheet">
+    <style>
+        .modal-fullscreen {
+            width: 100vw;
+            max-width: none;
+            height: 100%;
+            margin: 0
+        }
 
+        .modal-fullscreen .modal-content {
+            height: 100%;
+            border: 0;
+            border-radius: 0
+        }
+
+        .modal-fullscreen .modal-footer, .modal-fullscreen .modal-header {
+            border-radius: 0
+        }
+
+        .modal-fullscreen .modal-body {
+            overflow-y: auto
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -407,6 +428,8 @@ $_SESSION['user_id'] = $data[0]['id'];
 
     setInterval(playSound, 1000);
 
+    let soundCall = [];
+
     async function playSound() {
 
         $.ajax({
@@ -417,9 +440,30 @@ $_SESSION['user_id'] = $data[0]['id'];
 
                 if (msg != 'reset') {
 
+                    console.log(msg);
+
                     let audioSplit = msg.match(/.{1,4}/g);
 
                     for (let i = 0; i < audioSplit.length; i++) {
+
+                        soundCall.push(audioSplit[i]);
+
+                        let l=0;
+
+                        soundCall.forEach((element) => {
+                            if(element==audioSplit[i]){
+                                l=1;
+                            }
+                        });
+
+                        if(l==0){
+                            $('#staticBackdrop').modal('show');
+                            document.getElementById('classTitle').innerHTML=audioSplit[i];
+
+                            setInterval(function () {
+                                $('#staticBackdrop').modal('hide');
+                            }, 2000);
+                        }
 
                         let audio = new Audio('../assets/audio/' + audioSplit[i] + '.wav');
                         audio.play();
