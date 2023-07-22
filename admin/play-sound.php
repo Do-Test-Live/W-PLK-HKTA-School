@@ -202,7 +202,7 @@ $_SESSION['user_id'] = $data[0]['id'];
                                         ?>
                                         <div class="col-xl-3 col-lg-4 col-6 mb-4">
                                             <button class="btn btn-primary hkta-dark-btn"
-                                                    type="button"><?php echo $activities_data[$j]['name']; ?></button>
+                                                    id="EC<?php echo $activities_data[$j]['id']; ?>" type="button"><?php echo $activities_data[$j]['name']; ?></button>
                                         </div>
                                         <?php
                                     }
@@ -210,7 +210,7 @@ $_SESSION['user_id'] = $data[0]['id'];
                                         ?>
                                         <div class="col-xl-3 col-lg-4 col-6 mb-4">
                                             <button class="btn btn-primary hkta-dark-btn"
-                                                    type="button"><?php echo $activities_data[$j + 1]['name']; ?></button>
+                                                    id="EC<?php echo $activities_data[$j]['id']; ?>" type="button"><?php echo $activities_data[$j + 1]['name']; ?></button>
                                         </div>
                                         <?php
                                     }
@@ -218,7 +218,7 @@ $_SESSION['user_id'] = $data[0]['id'];
                                         ?>
                                         <div class="col-xl-3 col-lg-4 col-6 mb-4">
                                             <button class="btn btn-primary hkta-dark-btn"
-                                                    type="button"><?php echo $activities_data[$j + 2]['name']; ?></button>
+                                                    id="EC<?php echo $activities_data[$j]['id']; ?>" type="button"><?php echo $activities_data[$j + 2]['name']; ?></button>
                                         </div>
                                         <?php
                                     }
@@ -226,7 +226,7 @@ $_SESSION['user_id'] = $data[0]['id'];
                                         ?>
                                         <div class="col-xl-3 col-lg-4 col-6 mb-4">
                                             <button class="btn btn-primary hkta-dark-btn"
-                                                    type="button"><?php echo $activities_data[$j + 3]['name']; ?></button>
+                                                    id="EC<?php echo $activities_data[$j]['id']; ?>" type="button"><?php echo $activities_data[$j + 3]['name']; ?></button>
                                         </div>
                                         <?php
                                     }
@@ -240,7 +240,7 @@ $_SESSION['user_id'] = $data[0]['id'];
                                         ?>
                                         <div class="col-xl-4 col-6 mb-4">
                                             <button class="btn btn-primary hkta-dark-btn"
-                                                    type="button"><?php echo $activities_data[$j + 4]['name']; ?></button>
+                                                    id="EC<?php echo $activities_data[$j]['id']; ?>" type="button"><?php echo $activities_data[$j + 4]['name']; ?></button>
                                         </div>
                                         <?php
                                     }
@@ -248,7 +248,7 @@ $_SESSION['user_id'] = $data[0]['id'];
                                         ?>
                                         <div class="col-xl-4 col-6 mb-4">
                                             <button class="btn btn-primary hkta-dark-btn"
-                                                    type="button"><?php echo $activities_data[$j + 5]['name']; ?></button>
+                                                    id="EC<?php echo $activities_data[$j]['id']; ?>" type="button"><?php echo $activities_data[$j + 5]['name']; ?></button>
                                         </div>
                                         <?php
                                     }
@@ -256,7 +256,7 @@ $_SESSION['user_id'] = $data[0]['id'];
                                         ?>
                                         <div class="col-xl-4 col-6 mb-4">
                                             <button class="btn btn-primary hkta-dark-btn"
-                                                    type="button"><?php echo $activities_data[$j + 6]['name']; ?></button>
+                                                    id="EC<?php echo $activities_data[$j]['id']; ?>" type="button"><?php echo $activities_data[$j + 6]['name']; ?></button>
                                         </div>
                                         <?php
                                     }
@@ -372,6 +372,20 @@ $_SESSION['user_id'] = $data[0]['id'];
     });
 
     const buttons = document.querySelectorAll(".hkta-primary-btn");
+    const eca = document.querySelectorAll(".hkta-dark-btn");
+
+    eca.forEach(button => {
+        button.addEventListener("click", () => {
+            let audio = new Audio('../assets/audio/' + button.id + '.wav');
+            audio.play();
+
+            if (button.id != 'reset') {
+                button.disabled = true;
+            }
+
+            sound(button.id);
+        });
+    });
 
     buttons.forEach(button => {
         button.addEventListener("click", () => {

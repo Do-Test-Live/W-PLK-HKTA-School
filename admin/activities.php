@@ -7,8 +7,25 @@ if (isset($_POST['submit'])) {
     $id = $db_handle->checkValue($_POST['id']);
     $activities_name = $db_handle->checkValue($_POST['activities_name']);
 
+    $sound = '';
+    if (!empty($_FILES['sound']['name'])) {
+        $file_name = $_FILES['sound']['name'];
+        $file_size = $_FILES['sound']['size'];
+        $file_tmp = $_FILES['sound']['tmp_name'];
 
-    $insert_user = $db_handle->insertQuery("UPDATE `extra_activities` SET `name`='$activities_name' WHERE id={$id}");
+        $file_type = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+
+        move_uploaded_file($file_tmp, "../assets/audio/" . $file_name);
+        $sound = "assets/audio/" . $file_name;
+
+    }
+
+    if($sound!=''){
+        $insert_user = $db_handle->insertQuery("UPDATE `sound_list` SET `name`='$activities_name',`sound_name`='$sound' WHERE id={$id}");
+    }else{
+        $insert_user = $db_handle->insertQuery("UPDATE `extra_activities` SET `name`='$activities_name' WHERE id={$id}");
+    }
+
 
     if ($insert_user) {
         ?>
@@ -78,6 +95,21 @@ if (isset($_POST['submit'])) {
                                                 <label>Activities Name</label>
                                                 <input type="text" class="form-control" name="activities_name" value="<?php echo $data[0]['name']; ?>" required>
                                             </div>
+                                            <div class="form-group">
+                                                <label>Sound</label>
+                                                <div class="input-group mb-3">
+                                                    <label class="input-group-text">Upload</label>
+                                                    <input type="file" class="form-control" name="sound" accept=".wav"
+                                                           required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <audio controls>
+                                                    <source src="../<?php echo $data[0]['sound_name']; ?>"
+                                                            type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </div>
                                             <input type="hidden" value="<?php echo $data[0]['id']; ?>" name="id" required/>
                                             <button type="submit" name="submit" class="btn btn-primary mt-3">Update Activities
                                             </button>
@@ -103,6 +135,7 @@ if (isset($_POST['submit'])) {
                                     <tr>
                                         <th>SL</th>
                                         <th>Extra activities Name</th>
+                                        <th class="text-center">Sound</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                     </thead>
@@ -110,6 +143,7 @@ if (isset($_POST['submit'])) {
                                     <tr>
                                         <th>SL</th>
                                         <th>Extra activities Name</th>
+                                        <th class="text-center">Sound</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                     </tfoot>
@@ -122,6 +156,13 @@ if (isset($_POST['submit'])) {
                                         <tr>
                                             <td><?php echo $i + 1; ?></td>
                                             <td><?php echo $data[$i]["name"]; ?></td>
+                                            <td class="text-center">
+                                                <audio controls>
+                                                    <source src="../<?php echo $data[$i]["sound_name"]; ?>"
+                                                            type="audio/wav">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                            </td>
                                             <td class="text-center">
                                                 <a href="activities.php?activities_id=<?php echo $data[$i]["id"]; ?>"
                                                    class="btn btn-primary">Edit</a>

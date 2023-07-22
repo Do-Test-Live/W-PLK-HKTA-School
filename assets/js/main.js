@@ -1,4 +1,3 @@
-/*
 $(document).ready(function () {
     //to disable the entire page
     $("body").on("contextmenu", function (e) {
@@ -34,9 +33,10 @@ $(document).ready(function () {
         }
     }
 });
-*/
 
 const buttons = document.querySelectorAll(".hkta-primary-btn");
+
+const eca = document.querySelectorAll(".hkta-dark-btn");
 
 buttons.forEach(button => {
     button.addEventListener("click", () => {
@@ -53,6 +53,19 @@ buttons.forEach(button => {
         setInterval(function () {
             $('#staticBackdrop').modal('hide');
         }, 2000);
+
+        sound(button.id);
+    });
+});
+
+eca.forEach(button => {
+    button.addEventListener("click", () => {
+        let audio = new Audio('../assets/audio/' + button.id + '.wav');
+        audio.play();
+
+        if (button.id != 'reset') {
+            button.disabled = true;
+        }
 
         sound(button.id);
     });
